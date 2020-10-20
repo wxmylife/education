@@ -4,6 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <modules>
         <module>service</module>
+        <module>common</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -46,6 +47,7 @@
         <canal-client.version>1.1.4</canal-client.version>
         <docker.image.prefix>zx</docker.image.prefix>
         <clound-alibaba.version>2.2.3.RELEASE</clound-alibaba.version>
+        <redis.version>2.3.1.RELEASE</redis.version>
     </properties>
 
     <dependencyManagement>
@@ -60,11 +62,17 @@
             </dependency>
 
             <dependency>
-                <groupId>-dorg.springframework.cloud</groupId>
+                <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>
                 <version>${clound-alibaba.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-redis</artifactId>
+                <version>2.3.1.RELEASE</version>
             </dependency>
             <!--mybatis-plus 持久层-->
             <dependency>
@@ -72,6 +80,12 @@
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis-plus.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-generator</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+
 
             <!--velocity 模板引擎,mybatis plus 代码生成器-->
             <dependency>
